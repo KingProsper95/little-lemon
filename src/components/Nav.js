@@ -1,18 +1,17 @@
+import { Link } from "react-router-dom";
+import { HStack } from "@chakra-ui/react";
+
 function Nav(){
-    const ulStyle = {
-        backgroundColor : 'blue',
-        listStyleType : 'none',
-    }
     return (
         <>
-            <ul style = {ulStyle}>
-                <li>Home</li>
-                <li>About</li>
-                <li>Menu</li>
-                <li>Reservations</li>
-                <li>Order online</li>
-                <li>Login</li>
-            </ul>
+            <HStack as="nav" color='black'>
+                <Link to="/">Home</Link>
+                <Link>About</Link>
+                <Link>Menu</Link>
+                <Link to="/reservations">Reservations</Link>
+                <Link>Order online</Link>
+                <Link>Login</Link>
+            </HStack>
         </>
     )
 }
