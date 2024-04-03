@@ -9,7 +9,7 @@ function Nav(){
             <Link>Menu</Link>
             <Link to="/reservations">Reservations</Link>
             <Link>Order online</Link>
-            <Link>Login</Link> 
+            <Link>Logine</Link> 
         </HStack>   
     )
 }
