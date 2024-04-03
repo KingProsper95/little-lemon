@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { HStack } from "@chakra-ui/react";
-import styled from "styled-components";
 
 function Nav(){
     return (
