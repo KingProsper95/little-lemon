@@ -5,11 +5,27 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
+import { extendTheme } from '@chakra-ui/react'
+import '@fontsource/markazi-text';
+import '@fontsource/karla';
+
+const theme = extendTheme({
+  colors:{
+    primary_green: '#495E57',
+    primary_yellow : '#F4CE14',
+    secondary_grey : '#EDEFEE',
+    secondary_black : '#333333'
+  },
+  fonts: {
+    heading: `'Markazi Text', serif`,
+    body: `'Karla', sans-serif`,
+  },
+})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
-        <ChakraProvider>
+        <ChakraProvider theme={ theme }>
             <App />
         </ChakraProvider>
     </BrowserRouter>

@@ -1,0 +1,32 @@
+{
+    "testimonials" : [
+        {
+            "id" : 1,
+            "image" : "/people/sara.jpeg",
+            "name" : "Sara Lopez",
+            "account" : "sara72",
+            "comment" : "“Seriously cannot stop thinking about the Turkish Mac n’ Cheese!!”"
+        },
+        {
+            "id" : 2,
+            "image" : "/people/johnny.jpeg",
+            "name" : "John Do",
+            "account" : "Johnny_Utah",
+            "comment" : "“We had such a great time celebrating my grandmothers bitthday!”"
+        },
+        {
+            "id" : 3,
+            "image" : "/people/grandma.jpeg",
+            "name" : "Sara Lopez",
+            "account" : "sara72",
+            "comment" : "“Best Feta Salad in town. Flawless everytime!”"
+        },
+        {
+            "id" : 4,
+            "image" : "/people/grandma.jpeg",
+            "name" : "Sara Lopez",
+            "account" : "sara72",
+            "comment" : "“Such a chilled out atmosphere - love it!”"
+        }
+    ]
+}
