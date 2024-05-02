@@ -1,10 +1,47 @@
-import {Container, FormControl, Input, Text, Button, FormErrorMessage, HStack, Icon, Select} from '@chakra-ui/react';
+import {Container, FormControl, Input, Text, Button,Box, FormErrorMessage, HStack, Image, Select, useToast, Divider, VStack} from '@chakra-ui/react';
 import { useFormik } from 'formik';
+import { useState } from 'react';
 import * as Yup from 'yup';
+import mario from '../../assets/images/mario&adrian.jpg';
 
 function BookingSection() {
 
   const availableTimes = ['19:00','20:00','21:00','22:00','23:00','00:00'];
+
+  const toast = useToast();
+
+  const [times, setTimes] = useState(availableTimes);
+
+  const openHours = [
+    {
+      day:'Mon',
+      hours:'7am to 11pm',
+    },
+    {
+      day:'Tue',
+      hours:'7am to 11pm',
+    },
+    {
+      day:'Wed',
+      hours:'7am to 11pm',
+    },
+    {
+      day:'Thur',
+      hours:'7am to 11pm',
+    },
+    {
+      day:'Fri',
+      hours:'7am to 11pm',
+    },
+    {
+      day:'Sat',
+      hours:'7am to 11pm',
+    },
+    {
+      day:'Sun',
+      hours:'12pm to 00am',
+    },
+  ]
 
   const inputStyle = {
     bg:'secondary_grey',
@@ -28,10 +65,19 @@ function BookingSection() {
       }),
     onSubmit : values => {
       alert(JSON.stringify(values,null,2))
+      toast({
+        title: 'Successfully booked table',
+        description: "We've booked your table",
+        status: 'success',
+        duration: 5000,
+        isClosable: true,
+      })
     },
   })
+
+  fetch("")
   return (
-    <Container minW='max-content' my={8}>
+    <Container maxW='max-content' my={8}>
       <Text textAlign='center' color='secondary_grey' fontSize={32}>Book a table for your occassion</Text>
       <Text mb='20px' color='secondary_grey' fontSize={20}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, ipsum nec laoreet tempor, mi quam maximus purus, id tincidunt</Text>
       <form onSubmit={formik.handleSubmit} onReset={formik.handleReset}>
@@ -56,19 +102,19 @@ function BookingSection() {
               {...formik.getFieldProps('time')}
               sx={inputStyle}
             >
-              {availableTimes.map(time => <option value={time}>{time}</option> )}
+              {times.map(time => <option value={time}>{time}</option> )}
             </Select>
           </FormControl>
         </HStack>
         <HStack spacing={6}>
         <FormControl>
             <Select
-              id='occasion'
-              name='occasion'
-              {...formik.getFieldProps('occasion')}
+              id='occassion'
+              name='occassion'
+              {...formik.getFieldProps('occassion')}
               sx={inputStyle}
             >
-              <option value='birthday'>Bithday</option>
+              <option value='birthday'>Birthday</option>
               <option value='anniversary'>Anniversary</option>
               <option value='marriage'>Marriage</option>
             </Select>
@@ -85,9 +131,25 @@ function BookingSection() {
               <FormErrorMessage>{formik.errors.date}</FormErrorMessage>
             </FormControl>
         </HStack>
-        <Button type='submit' w='100%' colorScheme='yellow' mt={5}>submit</Button>
+        <Button type='submit' w='100%' colorScheme='yellow' my={5}>submit</Button>
       </form>
+        <HStack spacing={0} my={10} mx={'auto'} justify={'center'}>
+          <Image src={mario} boxSize='400px'/>        
+          <VStack bg='#2F2F2F' boxSize='350px' py={10}>
+              <Text color='primary_yellow' fontSize={24}>Open Hours</Text>
+              { openHours && openHours.map( days => {
+                 return (
+                  <HStack spacing={6}>
+                    <Text color='secondary_grey'>{days.day}</Text>
+                    <Divider w={20}/>
+                    <Text color='secondary_grey'>{days.hours}</Text>
+                 </HStack>
+                 )
+              })}
+          </VStack>
+        </HStack>
     </Container>
+    
   )
 }
 

@@ -1,6 +1,7 @@
 import { Flex, Box } from "@chakra-ui/react";
 import Landing from "./Landing";
 import BookingSection from "./BookingSection";
+import Feedback from "./Feedback";
 
 
 export default function Reservation() {
@@ -12,6 +13,9 @@ export default function Reservation() {
       <Box bg='primary_green'>
         <BookingSection />
       </Box>    
+      <Box bg='#FBDABB'>
+        <Feedback />
+      </Box>
     </Flex>
   )
 }
